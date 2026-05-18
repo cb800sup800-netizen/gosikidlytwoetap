@@ -1,0 +1,23 @@
+{
+  "name": "gosias-support-chat",
+  "version": "2.1.0",
+  "description": "Система поддержки Госуслуг с Telegram-ботом и WebSocket",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "bot": "node bot.js",
+    "dev": "concurrently \"npm run start\" \"npm run bot\""
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-telegram-bot-api": "^0.67.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
